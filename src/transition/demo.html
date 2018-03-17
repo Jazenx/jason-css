@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,39 +16,58 @@
 		}
 	</style>
 </head>
+
 <body>
 	<link rel="stylesheet" href="cube.css">
+	<header>
+			<a class="header-btn">旋转老婆</a>
+
+	</header>
 	<article>
 		<section>
 			<div class="demo">
-				<div class="cube show-left">
+				<div class="cube show-default">
 					<div class="cube-face is-front">
-						<img src="https://rawcdn.githack.com/o2team/misc/gh-pages/o2/img/mms/s1/1.jpg" alt="pic1">
+						<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1521311605962&di=3c71ae1a5db361987291943a7f02ff08&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2Fd%2F56fb620e19d7b.jpg%3Fdown" alt="pic1">
 					</div>
-					<div class="cube-face is-front">
-						<div class="cube show-default">
-							<div class="cube-face is-front">
-								<img src="https://rawcdn.githack.com/o2team/misc/gh-pages/o2/img/mms/s1/1.jpg" alt="pic1">
-							</div>
-							<div class="cube-face is-back">
-								<img src="https://rawcdn.githack.com/o2team/misc/gh-pages/o2/img/mms/s1/2.jpg" alt="pic2">
-							</div>
-							<div class="cube-face is-right">
-								<img src="https://rawcdn.githack.com/o2team/misc/gh-pages/o2/img/mms/s1/3.jpg" alt="pic3">
-							</div>
-							<div class="cube-face is-left">
-								<img src="https://rawcdn.githack.com/o2team/misc/gh-pages/o2/img/mms/s1/4.jpg" alt="pic4">
-							</div>
-							<div class="cube-face is-top">
-								<img src="https://rawcdn.githack.com/o2team/misc/gh-pages/o2/img/mms/s1/5.jpg" alt="pic5">
-							</div>
-							<div class="cube-face is-bottom">
-								<img src="https://rawcdn.githack.com/o2team/misc/gh-pages/o2/img/mms/s1/6.jpg" alt="pic6">
-							</div>
-						</div>
+					<div class="cube-face is-back">
+						<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1521311605962&di=391cd08251e5897efd1b0cca3d16914f&imgtype=0&src=http%3A%2F%2Fdl.bizhi.sogou.com%2Fimages%2F2012%2F11%2F08%2F316475.jpg" alt="pic2">
 					</div>
+					<div class="cube-face is-right">
+						<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1521311605961&di=c29e6b38765a3fdda09a43403ec7eeaa&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F0%2F567ceb2284c56.jpg" alt="pic3">
+					</div>
+					<div class="cube-face is-left">
+						<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1521311946788&di=20b766b084bccb2ba491c40b18ea2337&imgtype=0&src=http%3A%2F%2Fc.hiphotos.baidu.com%2Fbaike%2Fpic%2Fitem%2F91ef76c6a7efce1b27893518a451f3deb58f6546.jpg" alt="pic4">
+					</div>
+					<div class="cube-face is-top">
+						<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1521311986298&di=c513ce3d0495a7f38a9c7b45900e60c2&imgtype=0&src=http%3A%2F%2Fhimg2.huanqiu.com%2Fattachment2010%2F2017%2F0122%2F20170122093516442.jpg" alt="pic5">
+					</div>
+					<div class="cube-face is-bottom">
+						<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1521312008333&di=bd5499df58fb96277a9398524b8a444e&imgtype=0&src=http%3A%2F%2Fi1.hdslb.com%2Fbfs%2Farchive%2F79d018f155c8234bbbb531b2565cc3a9d265d832.png" alt="pic6">
+					</div>
+				</div>
 		</section>
 	</article>
+	<script>
+		var btn = document.querySelector('.header-btn');
+		var cube = document.querySelector('.cube');
+		var randomArr = ['cube show-top', 'cube show-front', 'cube show-back', 'cube show-right', 'cube show-left',
+			'cube show-bottom'
+		];
+		var randomClassName = 'cube show-top';
+		function randomClass() {
+			var randomCube = randomArr[Math.floor(Math.random() * 5)];
+			if(randomClassName === randomCube) {
+				return randomClass(randomClassName);
+			} else {
+				randomClassName = randomCube;
+				return randomCube;
+			}
+		}
+		btn.addEventListener('click', function () {
+			cube.setAttribute('class', randomClass());
+			// console.log(randomClassName);
+		}, false)
+	</script>
 </body>
-
 </html>

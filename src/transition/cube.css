@@ -5,6 +5,18 @@
   position: relative;
   margin: 30px auto; }
 
+header {
+  display: flex; }
+
+.header-btn {
+  background-color: #ff0081;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 30px auto;
+  display: inline-block;
+  box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5); }
+
 .cube {
   width: 100%;
   height: 100%;
@@ -12,9 +24,19 @@
   position: absolute;
   transition: transform ease 1s; }
   .cube.show-default {
-    transform: rotateZ(-150px) rotatey(-15deg) rotateX(-15deg); }
+    transform: translateZ(-150px) rotateY(-15deg) rotateX(-15deg); }
+  .cube.show-front {
+    transform: translateZ(-150px); }
+  .cube.show-back {
+    transform: translateZ(-150px) rotateX(-180deg); }
+  .cube.show-right {
+    transform: translateZ(-150px) rotateY(-90deg); }
   .cube.show-left {
     transform: translateZ(-150px) rotateY(90deg); }
+  .cube.show-top {
+    transform: translateZ(-150px) rotateX(-90deg); }
+  .cube.show-bottom {
+    transform: translateZ(-150px) rotateX(90deg); }
   .cube-face {
     border: 2px solid #000;
     width: 100%;
@@ -28,7 +50,7 @@
     .cube-face.is-back {
       transform: rotateX(-180deg) translateZ(150px); }
     .cube-face.is-right {
-      transform: rotateX(90deg) translateZ(150px); }
+      transform: rotateY(90deg) translateZ(150px); }
     .cube-face.is-left {
       transform: rotateY(-90deg) translateZ(150px); }
     .cube-face.is-top {
@@ -36,6 +58,7 @@
     .cube-face.is-bottom {
       transform: rotateX(-90deg) translateZ(150px); }
   .cube img {
+    height: 100%;
     width: 100%; }
 
 /*# sourceMappingURL=cube.css.map */
