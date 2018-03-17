@@ -1,0 +1,54 @@
+@charset "utf-8";
+$cube-size: 300px;
+$cube-radis: $cube-size / 2;
+.demo {
+	width: $cube-size;
+	height: $cube-size; // 设置透视距离
+	perspective: 1000px;
+	position: relative;
+	margin: 30px auto;
+}
+
+.cube {
+	width: 100%;
+	height: 100%;
+	transform-style: preserve-3d; // 设置变形方式
+	position: absolute;
+	transition: transform ease 1s;
+	&.show-default {
+		transform: rotateZ(-$cube-radis) rotatey(-15deg) rotateX(-15deg)
+	}
+	&.show-left{
+		transform: translateZ(-$cube-radis) rotateY(90deg)
+	}
+	&-face {
+		border: 2px solid #000;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		overflow: hidden;
+		opacity: 0.9; // 透明
+		backface-visibility: visible; // 设置每一个面的背面可见性
+		&.is-front {
+			transform: translateZ($cube-radis);
+		}
+		&.is-back {
+			transform: rotateX(-180deg) translateZ($cube-radis)
+		}
+		&.is-right {
+			transform: rotateX(90deg) translateZ($cube-radis)
+		}
+		&.is-left {
+			transform: rotateY(-90deg) translateZ($cube-radis)
+		}
+		&.is-top {
+			transform:  rotateX(90deg) translateZ($cube-radis)
+		}
+		&.is-bottom{
+			transform: rotateX(-90deg) translateZ($cube-radis)
+		}
+	}
+	img {
+		width: 100%
+	}
+}
