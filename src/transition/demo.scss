@@ -23,12 +23,40 @@ header {
   box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
 }
 
+@keyframes autoRotate {
+  // show-front
+  0%, 100% {
+    transform: translateZ( - $cube-radius );
+  }
+  // show-back
+  16.5% {
+    transform: translateZ( - $cube-radius ) rotateX( -180deg );
+  }
+  // show-left
+  33% {
+    transform: translateZ( - $cube-radius ) rotateY( 90deg );
+  }
+  // show-right
+  49.5% {
+    transform: translateZ( - $cube-radius ) rotateY( -90deg );
+  }
+  // show-top
+  66% {
+    transform: translateZ( - $cube-radius ) rotateX( -90deg );
+  }
+  // show-bottom 
+  82.5% {
+    transform: translateZ( - $cube-radius ) rotateX( 90deg );
+  }
+}
+
 .cube {
 	width: 100%;
 	height: 100%;
 	transform-style: preserve-3d; // 设置变形方式
 	position: absolute;
-	transition: transform ease 1s;
+	// transition: transform ease 1s;
+	animation: autoRotate ease 18s alternate infinite;
 	&.show-default {
 		transform: translateZ( - $cube-radius) rotateY( -15deg) rotateX(-15deg);
 	}
